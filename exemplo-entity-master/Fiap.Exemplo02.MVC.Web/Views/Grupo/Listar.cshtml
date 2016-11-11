@@ -1,0 +1,36 @@
+﻿@model List<Fiap.Exemplo02.MVC.Web.Models.Grupo>
+@{
+    ViewBag.Title = "Listar";
+}
+
+<h2>Listar</h2>
+
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Nome do Grupo</th>
+            <th>Nota do Grupo</th>
+            <th>Nome do Projeto</th>
+            <th>Descrição do Projeto</th>
+            <th>Início do Projeto</th>
+            <th>Término do Projeto</th>
+            <th>Situação</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nome</td>
+                <td>@item.Nota</td>
+                <td>@item.Projeto.Nome</td>
+                <td>@item.Projeto.Descricao</td>
+                <td>@item.Projeto.DataInicio</td>
+                <td>@item.Projeto.DataTermino</td>
+                <td>@item.Projeto.Entregue</td>
+                <td>@Html.ActionLink("Editar", "Editar", new { id = @item.Id }, new { @class = "btn btn-warning" })</td>
+            </tr>
+        }
+    </tbody>
+</table>
