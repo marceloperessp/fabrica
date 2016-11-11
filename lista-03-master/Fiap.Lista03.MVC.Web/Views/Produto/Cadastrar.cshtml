@@ -1,0 +1,38 @@
+﻿@model Fiap.Lista03.MVC.Web.Models.Produto
+@{
+    ViewBag.Title = "Cadastrar";
+}
+
+<h2>Cadastrar</h2>
+
+@if (TempData["msg"] != null)
+{
+    <span class="alert alert-success">@TempData["msg"]</span>
+}
+
+@using (Html.BeginForm())
+{
+    <div class="form-group">
+        @Html.LabelFor(p => p.Titulo)
+        @Html.TextBoxFor(p => p.Titulo, new { placeholder = "Digite o título do rótulo", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.Valor)
+        @Html.TextBoxFor(p => p.Valor, new { placeholder = "Digite o valor", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.DataCadastro, "Data de Cadastro")
+        @Html.TextBoxFor(p => p.DataCadastro, new { placeholder = "Digite a data de cadastro", @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(p => p.Descricao)
+        @Html.TextAreaFor(p => p.Descricao, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        @Html.CheckBoxFor(p => p.Nacional)
+        @Html.LabelFor(p => p.Nacional)
+    </div>
+
+    <input type="submit" value="Salvar" class="btn btn-default"/>
+
+}
